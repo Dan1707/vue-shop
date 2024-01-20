@@ -1,12 +1,12 @@
-import ShopCatalogBtn from "./ShopCatalogBtn.vue";
-import ShopSerachWrapper from "./ShopSearhWrapper.vue";
-import ShopInput from "./ShopInput.vue";
-import ShopProfile from "./ShopProfile.vue";
-import ShopLoginBtn from "./ShopLoginBtn.vue";
-import ShopProfileAction from "./ShopProfileAction.vue";
-import ShopCartBtn from "./ShopCartBtn.vue";
-import ShopProductWrapper from "./ShopProductWrapper.vue";
-import ShopProductItem from "./ShopProductItem.vue";
+import ShopCatalogBtn from "./global/ShopCatalogBtn.vue";
+import ShopSerachWrapper from "./header/ShopSearhWrapper.vue";
+import ShopInput from "./header/ShopInput.vue";
+import ShopProfile from "./header/ShopProfile.vue";
+import ShopLoginBtn from "./global/ShopLoginBtn.vue";
+import ShopProfileAction from "./global/ShopProfileAction.vue";
+import ShopCartBtn from "./global/ShopCartBtn.vue";
+import ShopProductWrapper from "./products/ShopProductWrapper.vue";
+import ShopProductItem from "./products/ShopProductItem.vue";
 
 const components = [
   { name: "ShopCatalogBtn", component: ShopCatalogBtn },

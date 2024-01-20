@@ -20,12 +20,6 @@ export default {
 <style lang="scss" scoped>
 .header {
   &__profile {
-    &_action {
-    }
-
-    &_action-img {
-    }
-
     &_action-name {
       font-weight: 400;
       font-size: 0.5625rem;
