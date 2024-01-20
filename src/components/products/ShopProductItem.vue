@@ -1,23 +1,19 @@
 <template>
   <div class="product__item">
     <div class="product__item_img-wrapper">
-      <img
-        src="/src/assets/img/product__image.png"
-        alt=""
-        class="product__item_img"
-      />
+      <img :src="el.images[0]" alt="" class="product__item_img" />
     </div>
     <div class="product__item_info">
       <div class="product__item_info-start">
         <h2 class="product__item-title">
-          Smartphone TECNO Spark 10 (KI5q) 8/128Gb Meta Black
+          {{ el.title }}
         </h2>
       </div>
       <div class="product__item_buy-wrapper">
         <div class="product__item_info-prices">
           <p class="product__item-price-title">Price:</p>
-          <p class="product__item-lowprice">4 999 грн</p>
-          <p class="product__item-prevprice">6 999грн</p>
+          <p class="product__item-lowprice">{{ el.price }}$</p>
+          <p class="product__item-prevprice">{{ el.price + 10 }}$</p>
         </div>
         <ShopCartBtn />
       </div>
@@ -34,6 +30,9 @@
 
 <script>
 export default {
+  props: {
+    el: Object,
+  },
   setup() {
     return {};
   },

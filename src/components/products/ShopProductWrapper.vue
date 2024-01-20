@@ -1,18 +1,26 @@
 <template>
-  <section class="product">
+  <section class="product" v-if="ShopStore.productShow">
     <div class="product__container">
       <h1 class="product__title">Our Products:</h1>
       <div class="product__item-wrapper">
-        <ShopProductItem />
+        <ShopProductItem
+          v-for="product in ShopStore.productArray"
+          :key="product.title"
+          :el="product"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import { ShopData } from "/src/store/store.js";
+
 export default {
   setup() {
-    return {};
+    const ShopStore = ShopData();
+
+    return { ShopStore };
   },
 };
 </script>
