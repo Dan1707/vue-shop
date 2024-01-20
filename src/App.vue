@@ -1,18 +1,20 @@
 <template>
-  <div></div>
+  <div class="wrapper">
+    <ShopSerachWrapper />
+    <ShopProductWrapper />
+  </div>
 </template>
 
 <script>
-import { reactive } from "vue";
-
 export default {
   setup() {
-    const state = reactive({});
-
-    return {
-      ...toRefs(state),
-    };
+    return {};
   },
 };
 </script>
-<style lang="scss" scoped></style>
+
+<style lang="scss">
+body {
+  background-color: #f7f8f9;
+}
+</style>
