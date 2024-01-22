@@ -78,6 +78,7 @@ export default {
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     row-gap: 38px;
     padding: 32px 0;
     position: relative;
@@ -101,13 +102,14 @@ export default {
       padding: 16px;
       display: flex;
       flex-direction: column;
-      align-items: start;
       row-gap: 24px;
       margin-bottom: 16px;
+      width: 100%;
     }
 
     &_buy-wrapper {
       @include flex;
+      width: 100%;
     }
     &_profile-actions {
       position: absolute;
@@ -125,6 +127,7 @@ export default {
     font-weight: 400;
     font-size: 0.875rem;
     line-height: 128%;
+    height: 40px;
     color: $dark-text-color;
   }
 
