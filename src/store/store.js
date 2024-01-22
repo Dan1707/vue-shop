@@ -7,6 +7,7 @@ export const ShopData = defineStore({
     productName: "",
     productArray: [],
     productShow: false,
+    productIsLiked: [],
   }),
   actions: {
     async getData() {
@@ -15,17 +16,33 @@ export const ShopData = defineStore({
           `https://api.escuelajs.co/api/v1/products?title=${this.productName}`
         );
 
-        this.productArray = res.data;
+        this.productArray = res.data.map((product) => {
+          return {
+            ...product,
+            isLiked: false,
+            isInCart: false,
+            isFilter: false,
+          };
+        });
 
         if (this.productName === "") {
           this.productShow = false;
         }
 
         console.log(this.productArray);
-        console.log(res);
       } catch (error) {
         console.log(error);
       }
+    },
+    getLikedProducts() {
+      this.productIsLiked = [];
+
+      this.productArray.forEach((el) => {
+        if (el.isLiked === true) {
+          this.productIsLiked.push(el);
+          console.log(this.productIsLiked);
+        }
+      });
     },
   },
 });

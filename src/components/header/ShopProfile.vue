@@ -4,15 +4,25 @@
     <span class="header__profile-line"></span>
     <div class="header__profile_action-wrapper">
       <ShopProfileAction :src="`/src/assets/img/filter.svg`" :text="`Filter`" />
-      <ShopProfileAction :src="`/src/assets/img/like.svg`" :text="`Liked`" />
+      <router-link to="/liked">
+        <ShopProfileAction
+          :src="`/src/assets/img/like.svg`"
+          :text="`Liked`"
+          @click="ShopStore.getLikedProducts"
+        />
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
+import { ShopData } from "/src/store/store.js";
+
 export default {
   setup() {
-    return {};
+    const ShopStore = ShopData();
+
+    return { ShopStore };
   },
 };
 </script>

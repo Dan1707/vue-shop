@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <ShopSerachWrapper />
-    <ShopProductWrapper />
+    <router-view></router-view>
   </div>
 </template>
 

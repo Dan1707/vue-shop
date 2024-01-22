@@ -7,6 +7,7 @@ import ShopProfileAction from "./global/ShopProfileAction.vue";
 import ShopCartBtn from "./global/ShopCartBtn.vue";
 import ShopProductWrapper from "./products/ShopProductWrapper.vue";
 import ShopProductItem from "./products/ShopProductItem.vue";
+import ShopProductProfileAction from "./products/ShopProductProfileAction.vue";
 
 const components = [
   { name: "ShopCatalogBtn", component: ShopCatalogBtn },
@@ -18,6 +19,7 @@ const components = [
   { name: "ShopCartBtn", component: ShopCartBtn },
   { name: "ShopProductWrapper", component: ShopProductWrapper },
   { name: "ShopProductItem", component: ShopProductItem },
+  { name: "ShopProductProfileAction", component: ShopProductProfileAction },
 ];
 
 export default {

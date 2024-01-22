@@ -17,29 +17,60 @@
         </div>
         <ShopCartBtn />
       </div>
-      <div class="product__item_profile-actions">
-        <ShopProfileAction
-          :src="`/src/assets/img/filter.svg`"
-          :text="`Filter`"
-        />
-        <ShopProfileAction :src="`/src/assets/img/like.svg`" :text="`Liked`" />
-      </div>
+
+      <template v-if="el.isLiked === true">
+        <div class="product__item_profile-actions" :style="`opacity: 100%`">
+          <ShopProductProfileAction
+            :src="`/src/assets/img/filter.svg`"
+            :text="`Filter`"
+          />
+          <ShopProductProfileAction
+            :src="`/src/assets/img/liked_product.png`"
+            :text="`Liked`"
+            @click="
+              el.isLiked = !el.isLiked;
+              ShopStore.getLikedProducts();
+            "
+          />
+        </div>
+      </template>
+      <template v-else>
+        <div class="product__item_profile-actions" :style="`opacity: 0%`">
+          <ShopProductProfileAction
+            :src="`/src/assets/img/filter.svg`"
+            :text="`Filter`"
+          />
+          <ShopProductProfileAction
+            :src="`/src/assets/img/like.svg`"
+            :text="`Liked`"
+            @click="
+              el.isLiked = !el.isLiked;
+              ShopStore.getLikedProducts();
+            "
+          />
+        </div>
+      </template>
     </div>
   </div>
 </template>
 
 <script>
+import { ShopData } from "/src/store/store.js";
+import { ref } from "vue";
+
 export default {
   props: {
     el: Object,
   },
   setup() {
-    return {};
+    const ShopStore = ShopData();
+
+    return { ShopStore };
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .product {
   &__item {
     background-color: $light-color;
@@ -47,13 +78,12 @@ export default {
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     row-gap: 38px;
     padding: 32px 0;
     position: relative;
     &:hover {
       .product__item_profile-actions {
-        opacity: 100%;
+        opacity: 100% !important;
       }
     }
     &_img-wrapper {
@@ -71,6 +101,7 @@ export default {
       padding: 16px;
       display: flex;
       flex-direction: column;
+      align-items: start;
       row-gap: 24px;
       margin-bottom: 16px;
     }
