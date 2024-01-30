@@ -2,6 +2,7 @@
   <div class="wrapper">
     <ShopSerachWrapper />
     <router-view></router-view>
+    <ShopCartWrapper />
   </div>
 </template>
 

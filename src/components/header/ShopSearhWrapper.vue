@@ -4,17 +4,26 @@
       <ShopCatalogBtn />
       <ShopInput />
       <ShopProfile />
-      <ShopCartBtn />
+      <ShopCartBtn
+        @click="
+          ShopStore.showCart = true;
+          ShopStore.calcCartProducts();
+        "
+        :ico="`/src/assets/img/cart.svg`"
+      />
     </div>
   </header>
 </template>
 
 <script>
+import { ShopData } from "/src/store/store.js";
 import { ref } from "vue";
 
 export default {
   setup() {
-    return {};
+    const ShopStore = ShopData();
+
+    return { ShopStore };
   },
 };
 </script>

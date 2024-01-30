@@ -4,7 +4,7 @@
       <h1 class="product__title">Our Products:</h1>
       <div class="product__item-wrapper">
         <ShopProductItem
-          v-for="product in ShopStore.productArray"
+          v-for="product in ShopStore.productsToShow"
           :key="product.title"
           :el="product"
         />

@@ -7,9 +7,7 @@
       <h1 class="liked__title">Liked Products:</h1>
 
       <template v-if="ShopStore.productIsLiked.length === 0">
-        <div class="liked__empty-array">
-          <p>Oops... there's nothing you liked yet.</p>
-        </div>
+        <ShopEmptyWarning :text="`there's nothing you liked yet`" />
       </template>
       <template v-else>
         <div class="liked__item-wrapper">
@@ -63,16 +61,6 @@ export default {
     justify-content: space-between;
     align-items: center;
     gap: 5px;
-  }
-  &__empty-array {
-    background-color: $primary-color;
-    width: 100%;
-    padding: 20px;
-    font-weight: 500;
-    font-size: 22px;
-    border-radius: 20px;
-    color: $light-color;
-    margin-top: 40px;
   }
 }
 </style>

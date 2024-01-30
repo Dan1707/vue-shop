@@ -1,12 +1,15 @@
 <template>
   <button class="header__cart-btn">
-    <img src="/src/assets/img/cart.svg" class="header__cart-btn_ico" />
+    <img :src="ico" class="header__cart-btn_ico" />
     <p class="header__cart-btn_text">Cart</p>
   </button>
 </template>
 
 <script>
 export default {
+  props: {
+    ico: String,
+  },
   setup() {
     return {};
   },
@@ -22,6 +25,11 @@ export default {
     border-radius: 4px;
     padding: 10px 28px;
     background-color: $price-color;
+
+    &_ico {
+      width: 20px;
+      height: 20px;
+    }
 
     &_text {
       color: $light-color;

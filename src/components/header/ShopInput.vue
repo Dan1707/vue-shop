@@ -5,7 +5,7 @@
       type="search"
       class="header__input"
       placeholder="I'm looking for..."
-      @input.prevent="ShopStore.getData"
+      @input.prevent="ShopStore.filterProducts"
       @keypress.enter.prevent="ShopStore.productShow = true"
     />
     <div class="header__input-btn_wrapper">

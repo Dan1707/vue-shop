@@ -15,7 +15,26 @@
           <p class="product__item-lowprice">{{ el.price }}$</p>
           <p class="product__item-prevprice">{{ el.price + 10 }}$</p>
         </div>
-        <ShopCartBtn />
+        <template v-if="el.isInCart === true">
+          <ShopCartBtn
+            @click="
+              el.isInCart = true;
+              ShopStore.getProductsInCart(el);
+            "
+            :ico="`https://img.icons8.com/ios-filled/50/FFFFFF/approval.png`"
+            :style="`opacity: 50%`"
+          />
+        </template>
+        <template v-else>
+          <ShopCartBtn
+            @click="
+              el.isInCart = true;
+              ShopStore.getProductsInCart(el);
+            "
+            :ico="`/src/assets/img/cart.svg`"
+            :style="`opacity: 100%`"
+          />
+        </template>
       </div>
 
       <template v-if="el.isLiked === true">
@@ -29,7 +48,7 @@
             :text="`Liked`"
             @click="
               el.isLiked = !el.isLiked;
-              ShopStore.getLikedProducts();
+              ShopStore.getLikedProducts(el);
             "
           />
         </div>
@@ -45,7 +64,7 @@
             :text="`Liked`"
             @click="
               el.isLiked = !el.isLiked;
-              ShopStore.getLikedProducts();
+              ShopStore.getLikedProducts(el);
             "
           />
         </div>

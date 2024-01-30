@@ -8,6 +8,10 @@ import ShopCartBtn from "./global/ShopCartBtn.vue";
 import ShopProductWrapper from "./products/ShopProductWrapper.vue";
 import ShopProductItem from "./products/ShopProductItem.vue";
 import ShopProductProfileAction from "./products/ShopProductProfileAction.vue";
+import ShopCartWrapper from "./cart/ShopCartWrapper.vue";
+import ShopCartItem from "./cart/ShopCartItem.vue";
+import ShopDeleteBtn from "./global/ShopDeleteBtn.vue";
+import ShopEmptyWarning from "./global/ShopEmptyWarning.vue";
 
 const components = [
   { name: "ShopCatalogBtn", component: ShopCatalogBtn },
@@ -20,6 +24,10 @@ const components = [
   { name: "ShopProductWrapper", component: ShopProductWrapper },
   { name: "ShopProductItem", component: ShopProductItem },
   { name: "ShopProductProfileAction", component: ShopProductProfileAction },
+  { name: "ShopCartWrapper", component: ShopCartWrapper },
+  { name: "ShopCartItem", component: ShopCartItem },
+  { name: "ShopDeleteBtn", component: ShopDeleteBtn },
+  { name: "ShopEmptyWarning", component: ShopEmptyWarning },
 ];
 
 export default {
