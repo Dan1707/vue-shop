@@ -1,3 +1,9 @@
+<script setup>
+import { ShopData } from "/src/store/store.js";
+
+const ShopStore = ShopData();
+</script>
+
 <template>
   <header class="header">
     <div class="header__container">
@@ -14,19 +20,6 @@
     </div>
   </header>
 </template>
-
-<script>
-import { ShopData } from "/src/store/store.js";
-import { ref } from "vue";
-
-export default {
-  setup() {
-    const ShopStore = ShopData();
-
-    return { ShopStore };
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 .header {

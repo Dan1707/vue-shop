@@ -19,8 +19,7 @@
       @click="
         el.isInCart = false;
         ShopStore.getProductsInCart(el);
-        ShopStore.calcCartProductsNum =
-          ShopStore.calcCartProductsNum - el.price;
+        calcCartPrices(el);
       "
     />
   </div>
@@ -36,7 +35,12 @@ export default {
   setup() {
     const ShopStore = ShopData();
 
-    return { ShopStore };
+    const calcCartPrices = (el) => {
+      return (ShopStore.calcCartProductsNum =
+        ShopStore.calcCartProductsNum - el.price);
+    };
+
+    return { ShopStore, calcCartPrices };
   },
 };
 </script>

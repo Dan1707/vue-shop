@@ -1,3 +1,9 @@
+<script setup>
+import { ShopData } from "/src/store/store.js";
+
+const ShopStore = ShopData();
+</script>
+
 <template>
   <div class="wrapper">
     <ShopSerachWrapper />
@@ -5,14 +11,6 @@
     <ShopCartWrapper />
   </div>
 </template>
-
-<script>
-export default {
-  setup() {
-    return {};
-  },
-};
-</script>
 
 <style lang="scss">
 body {

@@ -1,9 +1,29 @@
+<script setup>
+import { ShopData } from "/src/store/store.js";
+import { ref } from "vue";
+
+const ShopStore = ShopData();
+
+const showFilters = ref(false);
+</script>
+
 <template>
   <div class="header__profile">
     <ShopLoginBtn />
     <span class="header__profile-line"></span>
     <div class="header__profile_action-wrapper">
-      <ShopProfileAction :src="`/src/assets/img/filter.svg`" :text="`Filter`" />
+      <div class="header__filters-wrapper">
+        <ShopProfileAction
+          :src="`/src/assets/img/filter.svg`"
+          :text="`Filter`"
+          @click="showFilters = !showFilters"
+          class="filter-btn"
+        />
+
+        <template v-if="showFilters">
+          <ShopFilterWrapper />
+        </template>
+      </div>
       <router-link to="/liked">
         <ShopProfileAction
           :src="`/src/assets/img/like.svg`"
@@ -14,18 +34,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import { ShopData } from "/src/store/store.js";
-
-export default {
-  setup() {
-    const ShopStore = ShopData();
-
-    return { ShopStore };
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 .header {
@@ -44,6 +52,13 @@ export default {
     height: 11px;
     background-color: #d5d5d5;
     margin: 0 14px;
+  }
+
+  &__filters-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 </style>

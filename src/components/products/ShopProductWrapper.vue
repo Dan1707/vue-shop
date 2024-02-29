@@ -1,11 +1,11 @@
 <template>
-  <section class="product" v-if="ShopStore.productShow">
+  <section class="product">
     <div class="product__container">
       <h1 class="product__title">Our Products:</h1>
       <div class="product__item-wrapper">
         <ShopProductItem
           v-for="product in ShopStore.productsToShow"
-          :key="product.title"
+          :key="product"
           :el="product"
         />
       </div>

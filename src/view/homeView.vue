@@ -1,4 +1,5 @@
 <template>
+  <ShopCategoriesWrapper />
   <ShopProductWrapper />
 </template>
 

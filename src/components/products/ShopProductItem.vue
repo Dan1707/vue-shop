@@ -12,8 +12,7 @@
       <div class="product__item_buy-wrapper">
         <div class="product__item_info-prices">
           <p class="product__item-price-title">Price:</p>
-          <p class="product__item-lowprice">{{ el.price }}$</p>
-          <p class="product__item-prevprice">{{ el.price + 10 }}$</p>
+          <p class="product__item-prevprice">{{ el.price }}$</p>
         </div>
         <template v-if="el.isInCart === true">
           <ShopCartBtn
@@ -30,6 +29,7 @@
             @click="
               el.isInCart = true;
               ShopStore.getProductsInCart(el);
+              calcCartPrices(el);
             "
             :ico="`/src/assets/img/cart.svg`"
             :style="`opacity: 100%`"
@@ -39,10 +39,6 @@
 
       <template v-if="el.isLiked === true">
         <div class="product__item_profile-actions" :style="`opacity: 100%`">
-          <ShopProductProfileAction
-            :src="`/src/assets/img/filter.svg`"
-            :text="`Filter`"
-          />
           <ShopProductProfileAction
             :src="`/src/assets/img/liked_product.png`"
             :text="`Liked`"
@@ -55,10 +51,6 @@
       </template>
       <template v-else>
         <div class="product__item_profile-actions" :style="`opacity: 0%`">
-          <ShopProductProfileAction
-            :src="`/src/assets/img/filter.svg`"
-            :text="`Filter`"
-          />
           <ShopProductProfileAction
             :src="`/src/assets/img/like.svg`"
             :text="`Liked`"
@@ -75,7 +67,6 @@
 
 <script>
 import { ShopData } from "/src/store/store.js";
-import { ref } from "vue";
 
 export default {
   props: {
@@ -84,7 +75,12 @@ export default {
   setup() {
     const ShopStore = ShopData();
 
-    return { ShopStore };
+    const calcCartPrices = (el) => {
+      return (ShopStore.calcCartProductsNum =
+        ShopStore.calcCartProductsNum + el.price);
+    };
+
+    return { ShopStore, calcCartPrices };
   },
 };
 </script>
@@ -166,10 +162,9 @@ export default {
 
   &__item-prevprice {
     font-weight: 400;
-    font-size: 0.75rem;
+    font-size: 1.125rem;
     line-height: 131%;
     color: $secondary-color;
-    text-decoration: line-through;
   }
 }
 </style>

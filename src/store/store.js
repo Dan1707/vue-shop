@@ -7,11 +7,14 @@ export const ShopData = defineStore({
     productName: "",
     productArray: [],
     productsToShow: [],
-    productShow: false,
+    showProducts: false,
+    productsToShowCopy: [],
     productIsLiked: [],
     productsInCart: [],
     showCart: false,
+    defineAction: "All",
     calcCartProductsNum: 0,
+    filterCategories: [{ name: "All", isChosen: true }],
   }),
   actions: {
     async getData() {
@@ -30,6 +33,10 @@ export const ShopData = defineStore({
         });
 
         console.log(this.productArray);
+
+        this.productArray.forEach((el) => {
+          this.productsToShow.push(el);
+        });
       } catch (error) {
         console.log(error);
       }
@@ -43,9 +50,6 @@ export const ShopData = defineStore({
       this.productArray.forEach((el) => {
         if (el.title.toUpperCase().includes(this.productName.toUpperCase())) {
           this.productsToShow.push(el);
-        }
-        if (this.productName === "") {
-          this.productShow = false;
         }
       });
 
@@ -80,18 +84,6 @@ export const ShopData = defineStore({
           return newEl !== delEl;
         });
       }
-    },
-
-    calcCartProducts() {
-      this.productsInCart.forEach((el) => {
-        if (el.isInCart === true) {
-          this.calcCartProductsNum = this.calcCartProductsNum + el.price;
-
-          console.log(el.price + this.calcCartProductsNum);
-        } else if (this.productsInCart.length === 0) {
-          this.calcCartProductsNum = 0;
-        }
-      });
     },
   },
 });
