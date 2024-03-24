@@ -1,4 +1,4 @@
-import ShopCatalogBtn from "./global/ShopCatalogBtn.vue";
+import ShopLogo from "./global/ShopLogo.vue";
 import ShopSerachWrapper from "./header/ShopSearhWrapper.vue";
 import ShopInput from "./header/ShopInput.vue";
 import ShopProfile from "./header/ShopProfile.vue";
@@ -15,9 +15,10 @@ import ShopEmptyWarning from "./global/ShopEmptyWarning.vue";
 import ShopCategoriesWrapper from "./categories/ShopCategoriesWrapper.vue";
 import ShopCategoriesItem from "./categories/ShopCategoriesItem.vue";
 import ShopFilterWrapper from "./filter/ShopFilterWrapper.vue";
+import ShopUserCard from "./user/ShopUserCard.vue";
 
 const components = [
-  { name: "ShopCatalogBtn", component: ShopCatalogBtn },
+  { name: "ShopLogo", component: ShopLogo },
   { name: "ShopSerachWrapper", component: ShopSerachWrapper },
   { name: "ShopInput", component: ShopInput },
   { name: "ShopProfile", component: ShopProfile },
@@ -34,6 +35,7 @@ const components = [
   { name: "ShopCategoriesWrapper", component: ShopCategoriesWrapper },
   { name: "ShopCategoriesItem", component: ShopCategoriesItem },
   { name: "ShopFilterWrapper", component: ShopFilterWrapper },
+  { name: "ShopUserCard", component: ShopUserCard },
 ];
 
 export default {

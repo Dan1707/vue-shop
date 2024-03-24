@@ -1,20 +1,15 @@
+<script setup>
+defineProps({
+  ico: String,
+});
+</script>
+
 <template>
   <button class="header__cart-btn">
     <img :src="ico" class="header__cart-btn_ico" />
     <p class="header__cart-btn_text">Cart</p>
   </button>
 </template>
-
-<script>
-export default {
-  props: {
-    ico: String,
-  },
-  setup() {
-    return {};
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 .header {

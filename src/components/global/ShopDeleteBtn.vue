@@ -1,13 +1,5 @@
 <template>
-  <button class="cart__item_delete">Delete from Cart</button>
+  <button class="cart__item_delete">Delete</button>
 </template>
-
-<script>
-export default {
-  setup() {
-    return {};
-  },
-};
-</script>
 
 <style lang="scss" scoped></style>

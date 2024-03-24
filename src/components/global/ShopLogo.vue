@@ -1,17 +1,15 @@
 <template>
-  <button class="header__catalog-btn">
-    <img src="/src/assets/img/catalog.svg" alt="catalog_ico" />
-    <p class="header__catalog-btn_text">Catalog</p>
-  </button>
+  <router-link to="/">
+    <button class="header__catalog-btn">
+      <img
+        src="/src/assets/img/shop.ico"
+        class="header__catalog-ico"
+        alt="catalog_ico"
+      />
+      <p class="header__catalog-btn_text">VueShop.com</p>
+    </button>
+  </router-link>
 </template>
-
-<script>
-export default {
-  setup() {
-    return {};
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 @import "../src/assets/scss/imports.scss";
@@ -31,6 +29,9 @@ export default {
       color: $light-color;
       line-height: 112%;
     }
+  }
+  &__catalog-ico {
+    width: 30px;
   }
 }
 </style>

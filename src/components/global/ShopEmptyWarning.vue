@@ -1,19 +1,14 @@
+<script setup>
+defineProps({
+  text: String,
+});
+</script>
+
 <template>
   <div class="empty-array">
     <p>Oops... {{ text }}</p>
   </div>
 </template>
-
-<script>
-export default {
-  props: {
-    text: String,
-  },
-  setup() {
-    return {};
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 .empty-array {

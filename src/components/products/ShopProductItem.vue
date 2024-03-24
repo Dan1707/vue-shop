@@ -1,3 +1,18 @@
+<script setup>
+import { ShopData } from "/src/store/store.js";
+
+defineProps({
+  el: Object,
+});
+
+const ShopStore = ShopData();
+
+const calcCartPrices = (el) => {
+  return (ShopStore.calcCartProductsNum =
+    ShopStore.calcCartProductsNum + el.price);
+};
+</script>
+
 <template>
   <div class="product__item">
     <div class="product__item_img-wrapper">
@@ -64,26 +79,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import { ShopData } from "/src/store/store.js";
-
-export default {
-  props: {
-    el: Object,
-  },
-  setup() {
-    const ShopStore = ShopData();
-
-    const calcCartPrices = (el) => {
-      return (ShopStore.calcCartProductsNum =
-        ShopStore.calcCartProductsNum + el.price);
-    };
-
-    return { ShopStore, calcCartPrices };
-  },
-};
-</script>
 
 <style lang="scss">
 .product {

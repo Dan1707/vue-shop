@@ -1,3 +1,9 @@
+<script setup>
+import { ShopData } from "/src/store/store.js";
+
+const ShopStore = ShopData();
+</script>
+
 <template>
   <template v-if="ShopStore.showCart">
     <section class="cart">
@@ -35,23 +41,6 @@
     </section>
   </template>
 </template>
-
-<script>
-import { onMounted } from "vue";
-import { ShopData } from "/src/store/store.js";
-
-export default {
-  setup() {
-    const ShopStore = ShopData();
-
-    onMounted(() => {
-      ShopStore.getData();
-    });
-
-    return { ShopStore };
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 .cart {

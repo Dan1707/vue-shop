@@ -9,7 +9,9 @@ const showFilters = ref(false);
 
 <template>
   <div class="header__profile">
-    <ShopLoginBtn />
+    <router-link to="/login">
+      <ShopLoginBtn />
+    </router-link>
     <span class="header__profile-line"></span>
     <div class="header__profile_action-wrapper">
       <div class="header__filters-wrapper">

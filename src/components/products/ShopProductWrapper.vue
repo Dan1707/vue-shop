@@ -1,3 +1,9 @@
+<script setup>
+import { ShopData } from "/src/store/store.js";
+
+const ShopStore = ShopData();
+</script>
+
 <template>
   <section class="product">
     <div class="product__container">
@@ -12,18 +18,6 @@
     </div>
   </section>
 </template>
-
-<script>
-import { ShopData } from "/src/store/store.js";
-
-export default {
-  setup() {
-    const ShopStore = ShopData();
-
-    return { ShopStore };
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 .product {

@@ -6,6 +6,9 @@ import { createPinia } from "pinia";
 import { createRouter, createWebHistory } from "vue-router";
 import homeView from "/src/view/homeView.vue";
 import likedView from "/src/view/likedView.vue";
+import regView from "/src/view/regView.vue";
+import adminView from "/src/view/adminView.vue";
+import loginView from "/src/view/loginView.vue";
 
 const routes = [
   {
@@ -17,6 +20,21 @@ const routes = [
     path: "/liked",
     name: "liked",
     component: likedView,
+  },
+  {
+    path: "/reg",
+    name: "reg",
+    component: regView,
+  },
+  {
+    path: "/admin",
+    name: "admin",
+    component: adminView,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: loginView,
   },
 ];
 

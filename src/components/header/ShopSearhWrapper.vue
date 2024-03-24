@@ -7,7 +7,7 @@ const ShopStore = ShopData();
 <template>
   <header class="header">
     <div class="header__container">
-      <ShopCatalogBtn />
+      <ShopLogo />
       <ShopInput />
       <ShopProfile />
       <ShopCartBtn

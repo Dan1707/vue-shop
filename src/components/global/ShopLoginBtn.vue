@@ -5,12 +5,9 @@
   </button>
 </template>
 
-<script>
-export default {
-  setup() {
-    return {};
-  },
-};
+<script setup>
+import { ShopData } from "/src/store/store.js";
+const ShopStore = ShopData();
 </script>
 
 <style lang="scss" scoped>

@@ -15,6 +15,9 @@ export const ShopData = defineStore({
     defineAction: "All",
     calcCartProductsNum: 0,
     filterCategories: [{ name: "All", isChosen: true }],
+    showLogin: false,
+    access_token: null,
+    refresh_token: null,
   }),
   actions: {
     async getData() {
@@ -43,17 +46,19 @@ export const ShopData = defineStore({
     },
 
     filterProducts() {
-      this.productsToShow.length = 0;
-      console.log("Filtering products with name:", this.productName);
-      console.log("All products:", this.productArray);
+      if (this.productName) {
+        this.productsToShow.length = 0;
+        console.log("Filtering products with name:", this.productName);
+        console.log("All products:", this.productArray);
 
-      this.productArray.forEach((el) => {
-        if (el.title.toUpperCase().includes(this.productName.toUpperCase())) {
-          this.productsToShow.push(el);
-        }
-      });
+        this.productArray.forEach((el) => {
+          if (el.title.toUpperCase().includes(this.productName.toUpperCase())) {
+            this.productsToShow.push(el);
+          }
+        });
 
-      console.log("Filtered products:", this.productsToShow);
+        console.log("Filtered products:", this.productsToShow);
+      }
     },
 
     getLikedProducts(newEl) {
