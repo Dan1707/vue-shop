@@ -18,15 +18,22 @@ const getLoggedUser = async () => {
       }
     );
 
-    console.log(`${res.data} !!!!`);
+    const content = res.data;
+
+    message.value = `Now you logged in. Hi, ${content.name}!`;
+
+    console.log(res.data);
   } catch (error) {
     console.log(error);
   }
 };
 
+if (ShopStore.isGettingLoggedUser) {
+  getLoggedUser();
+}
+
 onMounted(() => {
   ShopStore.getData();
-  getLoggedUser();
 });
 </script>
 

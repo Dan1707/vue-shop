@@ -16,8 +16,9 @@ export const ShopData = defineStore({
     calcCartProductsNum: 0,
     filterCategories: [{ name: "All", isChosen: true }],
     showLogin: false,
-    access_token: null,
-    refresh_token: null,
+    access_token: "",
+    refresh_token: "",
+    isGettingLoggedUser: false,
   }),
   actions: {
     async getData() {

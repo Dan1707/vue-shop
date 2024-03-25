@@ -19,10 +19,13 @@ const loginUser = async () => {
 
     console.log(res.data);
 
-    ShopStore.access_token = res.data.access_token;
-    ShopStore.refresh_token = res.data.refresh_token;
+    const content = res.data;
+
+    ShopStore.access_token = content.access_token;
+    ShopStore.refresh_token = content.refresh_token;
 
     router.push("/");
+    ShopStore.isGettingLoggedUser = true;
   } catch (error) {
     console.log(error);
   }
